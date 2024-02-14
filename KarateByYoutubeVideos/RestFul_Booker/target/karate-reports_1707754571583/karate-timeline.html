@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/booker\/booking[1:8]","start":1707754358479,"end":1707754361955,"title":"src\/test\/java\/booker\/booking[1:8] 21:42:38.479-21:42:41.955 Get Booking IDs"},{"id":2,"group":1,"content":"src\/test\/java\/booker\/booking[2:14]","start":1707754362001,"end":1707754362748,"title":"src\/test\/java\/booker\/booking[2:14] 21:42:42.001-21:42:42.748 Get Booking Information","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/booker\/booking[3:20]","start":1707754362774,"end":1707754363671,"title":"src\/test\/java\/booker\/booking[3:20] 21:42:42.774-21:42:43.671 POST Create a New Booking"},{"id":4,"group":1,"content":"src\/test\/java\/booker\/booking[4:31]","start":1707754363686,"end":1707754364444,"title":"src\/test\/java\/booker\/booking[4:31] 21:42:43.686-21:42:44.444 PUT Update an Existing Booking","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/booker\/booking[5:43]","start":1707754364459,"end":1707754365861,"title":"src\/test\/java\/booker\/booking[5:43] 21:42:44.459-21:42:45.861 PATCH Partially Update an Existing Booking","className":"failed"},{"id":6,"group":1,"content":"src\/test\/java\/booker\/booking[6:54]","start":1707754365878,"end":1707754366598,"title":"src\/test\/java\/booker\/booking[6:54] 21:42:45.878-21:42:46.598 Delete a Booking","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

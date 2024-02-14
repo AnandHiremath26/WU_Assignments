@@ -1,0 +1,32 @@
+package datacompare;
+
+import java.io.FileInputStream;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Sheet;
+
+public class ReadExcelFile {
+
+	HSSFWorkbook excelData;
+	public ReadExcelFile(String path) {
+    
+		try {
+			FileInputStream excelFile=new FileInputStream(path);
+			excelData=new HSSFWorkbook(excelFile);
+		} catch (Exception e) {
+            System.out.println("Unable to Find the data from exxcel");
+		}
+	}
+	
+	public Sheet getSheet(int sheetIndex) {
+		return excelData.getSheetAt(sheetIndex);
+	}
+	
+	public String getStringData(int sheetIndex, int row, int col) {
+		return excelData.getSheetAt(sheetIndex).getRow(row).getCell(col).getStringCellValue();
+	}
+	
+	public double getNumricData(int sheetIndex, int row, int col) {
+		return excelData.getSheetAt(sheetIndex).getRow(row).getCell(col).getNumericCellValue();
+	}
+}

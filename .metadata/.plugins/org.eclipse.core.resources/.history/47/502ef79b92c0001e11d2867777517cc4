@@ -1,0 +1,11 @@
+Feature: API Testing with Restful Booker
+
+  Background: 
+    * url 'https://restful-booker.herokuapp.com'
+
+  Scenario: Get Booking Information
+    Given path '/booking/{bookingId}'
+    And path bookingId = 1
+    When method GET
+    Then status 200
+    And match response == { bookingid: 1 }

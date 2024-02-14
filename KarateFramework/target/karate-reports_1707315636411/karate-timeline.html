@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/features\/test[1:8]","start":1707315565517,"end":1707315568855,"title":"src\/test\/java\/features\/test[1:8] 19:49:25.517-19:49:28.855 Get Booking IDs"},{"id":2,"group":1,"content":"src\/test\/java\/features\/test[2:14]","start":1707315568920,"end":1707315569660,"title":"src\/test\/java\/features\/test[2:14] 19:49:28.920-19:49:29.660 Get Booking Information"},{"id":3,"group":1,"content":"src\/test\/java\/features\/test[3:20]","start":1707315569682,"end":1707315570704,"title":"src\/test\/java\/features\/test[3:20] 19:49:29.682-19:49:30.704 POST Create a New Booking","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

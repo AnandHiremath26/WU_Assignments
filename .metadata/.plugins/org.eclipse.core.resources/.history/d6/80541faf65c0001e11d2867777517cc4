@@ -1,0 +1,48 @@
+package retrieve;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RetrieveLinls {
+
+	public static void main(String[] args) {
+
+		 // Make sure you have the ChromeDriver executable and set its path
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        // Initialize ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the URL
+        driver.get("https://www.flipkart.com/");
+
+        System.out.println("Using for-each loop:");
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        for (WebElement link : links) {
+            System.out.println(link.getAttribute("href"));
+        }
+
+        System.out.println("\nUsing Stream:");
+        List<String> streamLinks=links .stream()
+                .map(WebElement::getText).collect(Collectors.toList());
+                streamLinks.stream()
+                .forEach(System.out::println);
+        
+        System.out.println("\nUsing Parallel Stream:");
+        List<String> parastreamLinks=links .parallelStream()
+                .map(WebElement::getText).collect(Collectors.toList());
+                parastreamLinks.parallelStream()
+                .forEach(System.out::println);
+
+        System.out.println("\nUsing Lambda Expression:");
+        links.forEach(link -> System.out.println(link.getAttribute("href")));
+
+        driver.quit();
+	}
+
+}

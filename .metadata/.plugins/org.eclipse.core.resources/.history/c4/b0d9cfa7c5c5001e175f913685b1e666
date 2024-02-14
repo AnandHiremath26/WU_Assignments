@@ -1,0 +1,14 @@
+package features;
+
+public class BookingID {
+
+	private String bookID;
+	
+	public void setBookingID(String bookID) {
+		this.bookID=bookID;
+	}
+	
+	public String getBookingID() {
+		return bookID;
+	}
+}

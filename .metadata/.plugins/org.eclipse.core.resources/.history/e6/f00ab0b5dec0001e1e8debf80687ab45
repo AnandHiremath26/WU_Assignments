@@ -1,0 +1,14 @@
+{
+  "bookingid": "#ignore",
+  "booking": {
+    "firstname": "Anand",
+    "lastname": "Hiremath",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2022-01-01",
+      "checkout": "2022-01-10"
+    },
+    "additionalneeds": "Breakfast"
+  }
+}
